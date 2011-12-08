@@ -9,9 +9,12 @@ class Ckeditor::BaseController < ApplicationController
   protected
     
     def set_locale
-      if !params[:langCode].blank? && I18n.available_locales.include?(params[:langCode].to_sym)
-        I18n.locale = params[:langCode]
-      end
+      # if !params[:langCode].blank? && I18n.available_locales.include?(params[:langCode].to_sym)
+      #   I18n.locale = params[:langCode]
+      # end
+      
+      # Hardcoding locale to US English, as fliebrowser isn't recognising GB.
+      I18n.locale = "en"
     end
     
     def respond_with_asset(asset)
