@@ -28,7 +28,7 @@ module Ckeditor
           js << "CKEDITOR.replace('#{dom_id}', { #{js_options} });"
         end
         
-        js.join
+        js.join.html_safe
       end
       
       def js_fileuploader(uploader_type, options = {})
@@ -48,7 +48,7 @@ module Ckeditor
         
         js_options = applay_options(options)
         
-        "$(document).ready(function(){ new qq.FileUploaderInput({ #{js_options} }); });"
+        "$(document).ready(function(){ new qq.FileUploaderInput({ #{js_options} }); });".html_safe
       end
       
       def applay_options(options)
